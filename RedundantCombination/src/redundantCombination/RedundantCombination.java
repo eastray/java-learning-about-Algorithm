@@ -13,9 +13,9 @@ public class RedundantCombination {
 	}
 
 	private void combination(int n, int r, int q) {
-//		System.out.println("n: " + n);
-//		System.out.println("r: " + r);
-		
+		// System.out.println("n: " + n);
+		// System.out.println("r: " + r);
+
 		if (r == 0) {
 			process(q);
 			return;
@@ -24,7 +24,7 @@ public class RedundantCombination {
 		else {
 			result[r - 1] = data[n - 1];
 			combination(n, r - 1, q);
-			combination(n-1, r, q);
+			combination(n - 1, r, q);
 		}
 
 	}
@@ -36,6 +36,5 @@ public class RedundantCombination {
 
 		comb.combination(4, 3, 3);
 	}
-
 
 }
