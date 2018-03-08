@@ -13,9 +13,6 @@ public class RedundantCombination {
 	}
 
 	private void combination(int n, int r, int q) {
-		// System.out.println("n: " + n);
-		// System.out.println("r: " + r);
-
 		if (r == 0) {
 			process(q);
 			return;
@@ -29,12 +26,39 @@ public class RedundantCombination {
 
 	}
 
+	private void printArray(int[] arr, int index) {
+		for (int i = 0; i < index; i++)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+
+	private void redundantCombination(int[] array, int index, int n, int r, int target) {
+
+		if (r == 0)
+			printArray(array, index);
+
+		else if (n == target)
+			return;
+
+		else {
+			array[index] = target;
+			combination(array, index + 1, n, r - 1, target);
+			combination(array, index, n, r, target + 1);
+
+		}
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		RedundantCombination comb = new RedundantCombination();
 
 		comb.combination(4, 3, 3);
+
+		System.out.println();
+		int[] array = new int[5];
+		System.out.println("Redundant Combination");
+		comb.redundantCombination(array, 0, 5, 2, 0);
 	}
 
 }
